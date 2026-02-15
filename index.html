@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <!-- minal aidzin wal faIZINNN Ganti dengan judul yang kamu mau -->
+    <title>minal aidzin wal faIZINNN</title>
+    <!-- Google Fonts: Chewy -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+    <style>
+        /* RESET & NEW PALETTE (BIRU SOFT) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --blue-1: #8FC9FF;
+            --blue-2: #A2D2FF;
+            --blue-3: #BDE0FE;
+            --blue-4: #D1E8FC;
+            --blue-5: #E5F0FA;
+            --text-dark: #2C3E4F;
+        }
+
+        body {
+            font-family: 'Chewy', cursive;
+            background-color: var(--blue-5);
+            /* GANTI URL BACKGROUND DI BAWAH INI */
+            background-image: url('https://files.catbox.moe/9a7awp.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-dark);
+            padding: 10px;
+        }
+
+        /* mobile wrapper */
+        .mobile-frame {
+            width: 100%;
+            max-width: 380px;
+            margin: 0 auto;
+        }
+
+        /* pages */
+        .page {
+            display: none;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(4px);
+            border-radius: 48px 48px 30px 30px;
+            padding: 28px 18px 32px 18px;
+            border: 4px solid var(--blue-1);
+            box-shadow: 0 10px 0 var(--blue-3), 0 15px 25px rgba(0,0,0,0.1);
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* TITLE WITH ICON */
+        .title-with-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .title-icon {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            line-height: 1.2;
+            font-weight: normal;
+            color: var(--text-dark);
+            text-shadow: 2px 2px 0 var(--blue-4);
+            letter-spacing: 0.5px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: normal;
+            margin: 10px 0;
+            color: var(--text-dark);
+        }
+
+        p {
+            font-size: 1.3rem;
+            margin: 12px 0;
+            color: var(--text-dark);
+        }
+
+        .friend-name {
+            color: var(--blue-1);
+            text-shadow: 1px 1px 0 white;
+        }
+
+        /* GIF STYLING */
+        .gif-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .gif-style {
+            max-width: 100%;
+            border-radius: 30px;
+            border: 4px solid var(--blue-2);
+            box-shadow: 0 8px 0 var(--blue-3);
+            background-color: var(--blue-5);
+        }
+
+        /* BUTTON */
+        .btn {
+            font-family: 'Chewy', cursive;
+            background-color: var(--blue-2);
+            border: none;
+            border-bottom: 5px solid var(--blue-3);
+            color: var(--text-dark);
+            padding: 14px 28px;
+            font-size: 1.6rem;
+            border-radius: 40px;
+            box-shadow: 0 4px 0 var(--blue-1);
+            cursor: pointer;
+            transition: all 0.07s;
+            width: 100%;
+            max-width: 200px;
+            margin: 20px auto 10px;
+            display: block;
+            text-align: center;
+        }
+
+        .btn:active {
+            transform: translateY(4px);
+            border-bottom-width: 2px;
+        }
+
+        /* TYPING ANIMATION FOR LETTER */
+        .letter-box {
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 40px;
+            padding: 30px 20px;
+            border: 4px solid var(--blue-1);
+            margin: 20px 0;
+            text-align: left;
+            font-size: 1.3rem;
+            line-height: 1.7;
+            min-height: 250px;
+            box-shadow: inset 0 0 0 4px var(--blue-4);
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .typing-text {
+            display: inline;
+            border-right: 3px solid var(--blue-1);
+            animation: blinkCursor 0.75s step-end infinite;
+        }
+
+        @keyframes blinkCursor {
+            from, to { border-color: transparent; }
+            50% { border-color: var(--blue-1); }
+        }
+
+        /* GIFT ICONS ROW */
+        .gift-row {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 30px 0 20px;
+            flex-wrap: wrap;
+        }
+
+        .gift-icon {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            cursor: pointer;
+            transition: transform 0.2s;
+            background-color: var(--blue-4);
+            border-radius: 30px;
+            padding: 10px;
+            border: 3px solid var(--blue-2);
+            box-shadow: 0 6px 0 var(--blue-3);
+        }
+
+        .gift-icon:active {
+            transform: scale(0.9);
+        }
+
+        .gift-message {
+            font-size: 1.3rem;
+            margin: 15px 0 5px;
+            min-height: 60px;
+            color: var(--text-dark);
+            background-color: rgba(255,255,255,0.5);
+            padding: 12px;
+            border-radius: 30px;
+            border: 2px dashed var(--blue-1);
+        }
+
+        /* hidden */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="mobile-frame">
+        <!-- PAGE 1 - HELLO + GIF 1 -->
+        <div id="page1" class="page active">
+            <div class="title-with-icon">
+                <!-- ICON TITLE - GANTI URL -->
+                <img src="https://files.catbox.moe/rgrpob.png" alt="icon" class="title-icon" onerror="this.style.display='none'">
+                <!-- Carteruy Ganti dengan nama temanmu -->
+                <h1>hello <span class="friend-name" id="friendName1">Carteruy</span></h1>
+            </div>
+            <p style="font-size: 1.5rem;">I have a surprise for you</p>
+            <p style="font-size: 1.8rem; margin-bottom: 20px;">ready for that?</p>
+            
+            <!-- GIF 1 - GANTI URL -->
+            <div class="gif-container">
+                <video class="gif-style" autoplay loop muted playsinline>
+                    <source src="https://files.catbox.moe/3n1b4y.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <button class="btn" id="nextToPage2">next</button>
+        </div>
+
+        <!-- PAGE 2 - HAPPY BIRTHDAY + GIF 2 -->
+        <div id="page2" class="page">
+            <div class="title-with-icon">
+                <img src="https://files.catbox.moe/rgrpob.png" alt="icon" class="title-icon" onerror="this.style.display='none'">
+                <!-- Carteruy Ganti dengan nama temanmu -->
+                <h1>Happy birthday, <span class="friend-name" id="friendName2">Carteruy</span>!</h1>
+            </div>
+
+            <!-- GIF 2 - GANTI URL -->
+            <div class="gif-container">
+                <video class="gif-style" autoplay loop muted playsinline>
+                    <source src="https://files.catbox.moe/l20cha.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <button class="btn" id="nextToPage3">next</button>
+        </div>
+
+        <!-- PAGE 3 - BIRTHDAY LETTER (TYPING ANIMATION) -->
+        <div id="page3" class="page">
+            <div class="title-with-icon">
+                <img src="https://files.catbox.moe/rgrpob.png" alt="icon" class="title-icon" onerror="this.style.display='none'">
+                <h1>a letter for you</h1>
+            </div>
+
+            <div class="letter-box" id="letterBox">
+                <!-- hbd Ganti dengan isi surat (bisa pakai \n untuk baris baru) -->
+                <span id="typingText" class="typing-text">hbd</span>
+            </div>
+
+            <button class="btn" id="nextToPage4">next</button>
+        </div>
+
+        <!-- PAGE 4 - PICK A GIFT -->
+        <div id="page4" class="page">
+            <div class="title-with-icon">
+                <img src="https://files.catbox.moe/rgrpob.png" alt="icon" class="title-icon" onerror="this.style.display='none'">
+                <h1>pick a gift</h1>
+            </div>
+
+            <!-- 3 GIFT ICONS - GANTI URL -->
+            <div class="gift-row">
+                <img src="https://files.catbox.moe/laue73.png" alt="cake" class="gift-icon" id="gift1" data-gift="cake">
+                <img src="https://files.catbox.moe/2zz093.png" alt="ice cream" class="gift-icon" id="gift2" data-gift="icecream">
+                <img src="https://files.catbox.moe/tqmke3.png" alt="flower" class="gift-icon" id="gift3" data-gift="flower">
+            </div>
+
+            <!-- message area - pagar, roti, jaringan jelek untuk pesan masing2 gift -->
+            <div class="gift-message" id="giftMessage">
+                pick a gift
+            </div>
+
+            <button class="btn" id="backToStart">start over</button>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // --- SEMUA PLACEHOLDER ADA DI SINI ---
+            
+            // Carteruy Ganti dengan nama temanmu
+            const FRIEND_NAME = "Carteruy";
+            
+            // hbd Ganti dengan isi surat (boleh pake \n untuk baris baru)
+            const FULL_LETTER = `hbd`;
+            
+            // pagar, roti, jaringan jelek Ganti dengan pesan untuk masing-masing gift
+            const GIFT_MESSAGES = {
+                cake: "pagar",
+                icecream: "roti",
+                flower: "jaringan jelek"
+            };
+
+            // --- DOM ELEMENTS (JANGAN DIUBAH) ---
+            const page1 = document.getElementById('page1');
+            const page2 = document.getElementById('page2');
+            const page3 = document.getElementById('page3');
+            const page4 = document.getElementById('page4');
+            const btn1 = document.getElementById('nextToPage2');
+            const btn2 = document.getElementById('nextToPage3');
+            const btn3 = document.getElementById('nextToPage4');
+            const backBtn = document.getElementById('backToStart');
+            const friendSpans = [document.getElementById('friendName1'), document.getElementById('friendName2')];
+            const typingSpan = document.getElementById('typingText');
+            const letterBox = document.getElementById('letterBox');
+            const giftIcons = [document.getElementById('gift1'), document.getElementById('gift2'), document.getElementById('gift3')];
+            const giftMsg = document.getElementById('giftMessage');
+
+            // --- STATE ---
+            let typingInterval = null;
+
+            // --- FUNCTIONS ---
+            function setFriendName(name) {
+                friendSpans.forEach(el => { if(el) el.textContent = name; });
+            }
+
+            function showPage(pageNum) {
+                page1.classList.remove('active');
+                page2.classList.remove('active');
+                page3.classList.remove('active');
+                page4.classList.remove('active');
+                
+                if (pageNum === 1) {
+                    page1.classList.add('active');
+                } else if (pageNum === 2) {
+                    page2.classList.add('active');
+                } else if (pageNum === 3) {
+                    page3.classList.add('active');
+                    // start typing animation when page 3 appears
+                    startTypingAnimation();
+                } else if (pageNum === 4) {
+                    page4.classList.add('active');
+                    // reset gift message
+                    giftMsg.textContent = "pick a gift";
+                }
+            }
+
+            // TYPING ANIMATION
+            function startTypingAnimation() {
+                if (typingInterval) clearInterval(typingInterval);
+                
+                // Ambil teks dari placeholder hbd
+                let text = FULL_LETTER;
+                
+                // Kalau masih placeholder, kasih pesan default
+                if (text === "hbd" || text.trim() === "") {
+                    text = "Happy birthday! Have a great day!";
+                }
+                
+                typingSpan.textContent = '';
+                typingSpan.classList.add('typing-text');
+                
+                let i = 0;
+                
+                typingInterval = setInterval(() => {
+                    if (i < text.length) {
+                        typingSpan.textContent += text.charAt(i);
+                        i++;
+                        // auto scroll letter box to bottom
+                        letterBox.scrollTop = letterBox.scrollHeight;
+                    } else {
+                        clearInterval(typingInterval);
+                        typingInterval = null;
+                        // remove cursor when done
+                        typingSpan.classList.remove('typing-text');
+                    }
+                }, 50);
+            }
+
+            function stopTyping() {
+                if (typingInterval) {
+                    clearInterval(typingInterval);
+                    typingInterval = null;
+                }
+                typingSpan.classList.add('typing-text');
+            }
+
+            // --- INIT ---
+            setFriendName(FRIEND_NAME);
+
+            // --- EVENT LISTENERS ---
+            btn1.addEventListener('click', () => {
+                showPage(2);
+            });
+
+            btn2.addEventListener('click', () => {
+                showPage(3);
+            });
+
+            btn3.addEventListener('click', () => {
+                stopTyping();
+                showPage(4);
+            });
+
+            backBtn.addEventListener('click', () => {
+                stopTyping();
+                showPage(1);
+            });
+
+            // GIFT ICONS
+            giftIcons.forEach(icon => {
+                icon.addEventListener('click', (e) => {
+                    const giftType = e.target.dataset.gift;
+                    if (giftType && GIFT_MESSAGES[giftType]) {
+                        giftMsg.textContent = GIFT_MESSAGES[giftType];
+                    }
+                });
+            });
+
+            // Handle video play/pause
+            document.querySelectorAll('video').forEach(v => {
+                v.addEventListener('click', () => {
+                    if (v.paused) v.play();
+                    else v.pause();
+                });
+            });
+
+        })();
+    </script>
+</body>
+</html>
